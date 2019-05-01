@@ -19,5 +19,32 @@
 <section class="author">
   A <%= link_to "todo-mvc", "http://todomvc.com" %>
   application, built by
-  <%= link_to "Ken Mazaika", "http://github.com/kenmazaika" %>
+  <%= link_to "Ken Mazaika", "http://github.com/kenmazaika" %>,
+  interpreted by Jordan Perkic
 </section>
+
+<script>
+	var t1 = document.getElementsByClassName("taskbutton");
+	console.log(t1);
+	
+
+
+
+	$(window).bind("load", function() {
+
+		for(i = 0; i < t1.length; i++){
+			
+			let temp = 'aight' + [i];
+
+			t1[i].addEventListener('click', function(){
+				console.log(temp);
+			});
+		}
+
+		
+
+
+	});
+
+
+</script>

@@ -2,8 +2,6 @@ $(function() {
 
 
 
-
-
     // The taskHtml method takes in a JavaScript representation
     // of the task and produces an HTML representation using
     // <li> tags
@@ -16,10 +14,11 @@ $(function() {
       checkedStatus +
       '><label>' +
        task.title +
-       '</label></div></li>';
+       '</label><button class="taskbutton">DELETE</button></div></li>';
 
     return liElement;
   }
+
 
     // toggleTask takes in an HTML representation of the
     // an event that fires from an HTML representation of
