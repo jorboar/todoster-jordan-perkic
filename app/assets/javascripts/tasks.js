@@ -1,3 +1,4 @@
+  var idArray = new Array();
 $(function() {
 
 
@@ -15,6 +16,10 @@ $(function() {
       '><label>' +
        task.title +
        '</label><button class="taskbutton">DELETE</button></div></li>';
+
+
+        idArray.push(task.id);
+
 
     return liElement;
   }
@@ -48,6 +53,13 @@ $(function() {
 
       $.each(data, function(index,  task) {
         htmlString += taskHtml(task);
+        //console.log(task.id);
+
+
+
+
+
+
       });
       var ulTodos = $('.todo-list');
       ulTodos.html(htmlString);

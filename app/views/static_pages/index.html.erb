@@ -35,9 +35,19 @@
 		for(i = 0; i < t1.length; i++){
 			
 			let temp = 'aight' + [i];
+			let idNumber = idArray[i];
 
 			t1[i].addEventListener('click', function(){
-				console.log(temp);
+				
+				console.log("yes");
+
+				$.ajax({
+				    url: ["/tasks/" + idNumber],
+				    type: 'DELETE',
+				    	success: function(result) {
+				        	console.log("did it " + result);
+				    	}
+				});
 			});
 		}
 
