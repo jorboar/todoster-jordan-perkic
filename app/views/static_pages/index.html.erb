@@ -25,6 +25,7 @@
 
 <script>
 	var t1 = document.getElementsByClassName("taskbutton");
+	var t2 = document.getElementsByClassName("view");
 	console.log(t1);
 	
 	var i = 0;
@@ -36,6 +37,7 @@
 			
 			let temp = 'aight' + [i];
 			let idNumber = idArray[i];
+			let divSelect = t2[i];
 
 			t1[i].addEventListener('click', function(){
 				
@@ -48,6 +50,9 @@
 				        	console.log("did it " + idNumber);
 				    	}
 				});
+
+				divSelect.style.display = 'none';
+
 			});
 		}
 

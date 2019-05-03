@@ -1,8 +1,6 @@
   var idArray = new Array();
 $(function() {
 
-
-
     // The taskHtml method takes in a JavaScript representation
     // of the task and produces an HTML representation using
     // <li> tags
@@ -20,7 +18,7 @@ $(function() {
              '</label><button class="taskbutton">DELETE</button></div></li>';
 
 
-              idArray.push(task.id);
+            idArray.push(task.id);
 
             var t1 = document.getElementsByClassName("taskbutton");
             console.log(t1);
@@ -97,6 +95,7 @@ $(function() {
 
 
             let temp = t1[i];
+            let divSelect = t2[i];
                 i++;
                 console.log("i is now: " + i);
 
@@ -113,6 +112,7 @@ $(function() {
                                 console.log("did it " + data.id);
                             }
                     });
+                    divSelect.style.display = 'none';
                 });
 
         
