@@ -7,22 +7,26 @@ $(function() {
     // of the task and produces an HTML representation using
     // <li> tags
     function taskHtml(task) {
-    var checkedStatus = task.done ? "checked" : "";
-    var liClass = task.done ? "completed" : "";
-    var liElement = '<li id="listItem-' + task.id +'" class="' + liClass + '">' +
-    '<div class="view"><input class="toggle" type="checkbox"' +
-      " data-id='" + task.id + "'" +
-      checkedStatus +
-      '><label>' +
-       task.title +
-       '</label><button class="taskbutton">DELETE</button></div></li>';
+        console.log("RUNNING TASTHTML");
+
+        var checkedStatus = task.done ? "checked" : "";
+        var liClass = task.done ? "completed" : "";
+        var liElement = '<li id="listItem-' + task.id +'" class="' + liClass + '">' +
+          '<div class="view"><input class="toggle" type="checkbox"' +
+            " data-id='" + task.id + "'" +
+            checkedStatus +
+            '><label>' +
+             task.title +
+             '</label><button class="taskbutton">DELETE</button></div></li>';
 
 
-        idArray.push(task.id);
+              idArray.push(task.id);
 
+            var t1 = document.getElementsByClassName("taskbutton");
+            console.log(t1);
 
-    return liElement;
-  }
+        return liElement;
+    }
 
 
     // toggleTask takes in an HTML representation of the
@@ -30,6 +34,9 @@ $(function() {
     // the toggle checkbox and  performs an API request to toggle
     // the value of the `done` field
     function toggleTask(e) {
+      console.log("RUNNING TOGGLE");
+      
+
       var itemId = $(e.target).data("id");
 
       var doneValue = Boolean($(e.target).is(':checked'));
@@ -48,17 +55,20 @@ $(function() {
       });
     }
 
+   
+
+
+
+
+
+
+
     $.get("/tasks").success( function( data ) {
       var htmlString = "";
 
       $.each(data, function(index,  task) {
         htmlString += taskHtml(task);
-        //console.log(task.id);
-
-
-
-
-
+        console.log(task.id);
 
       });
       var ulTodos = $('.todo-list');
@@ -77,11 +87,35 @@ $(function() {
     		}
     	};
     	$.post("/tasks", payload).success(function(data){
-    		var htmlString = taskHtml(data);
-    		var ulTodos = $('.todo-list');
-    		ulTodos.append(htmlString);
-    		$('.toggle').click(toggleTask);
-        $('.new-todo').val('');
+    		
+            var htmlString = taskHtml(data);
+    		
+            var ulTodos = $('.todo-list');
+            ulTodos.append(htmlString);
+            $('.toggle').click(toggleTask);
+            $('.new-todo').val('');
+
+
+            let temp = t1[i];
+                i++;
+                console.log("i is now: " + i);
+
+                console.log(temp);
+
+                temp.addEventListener('click', function(){
+                    
+                    console.log("yes");
+
+                    $.ajax({
+                        url: ["/tasks/" + data.id],
+                        type: 'DELETE',
+                            success: function(result) {
+                                console.log("did it " + data.id);
+                            }
+                    });
+                });
+
+        
     	});
     });
 

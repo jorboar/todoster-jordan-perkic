@@ -1,6 +1,6 @@
 <section class="todoapp">
 	<header class="header">
-		<h1>todos</h1>
+		<h1>TODOS</h1>
 		<form id="new-form">
 			<input type="text" class="new-todo" placeholder="What needs to be done?" />
 		</form>
@@ -27,7 +27,7 @@
 	var t1 = document.getElementsByClassName("taskbutton");
 	console.log(t1);
 	
-
+	var i = 0;
 
 
 	$(window).bind("load", function() {
@@ -45,14 +45,11 @@
 				    url: ["/tasks/" + idNumber],
 				    type: 'DELETE',
 				    	success: function(result) {
-				        	console.log("did it " + result);
+				        	console.log("did it " + idNumber);
 				    	}
 				});
 			});
 		}
-
-		
-
 
 	});
 
