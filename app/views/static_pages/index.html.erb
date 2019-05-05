@@ -5,7 +5,6 @@
 			<input type="text" class="new-todo" placeholder="What needs to be done?" />
 		</form>
 
-
 	</header>
 
 	<section class="main">
@@ -20,43 +19,6 @@
   A <%= link_to "todo-mvc", "http://todomvc.com" %>
   application, built by
   <%= link_to "Ken Mazaika", "http://github.com/kenmazaika" %>,
-  interpreted by Jordan Perkic
+  interpreted and expanded by Jordan Perkic
 </section>
 
-<script>
-	var t1 = document.getElementsByClassName("taskbutton");
-	var t2 = document.getElementsByClassName("view");
-	console.log(t1);
-	
-	var i = 0;
-
-
-	$(window).bind("load", function() {
-
-		for(i = 0; i < t1.length; i++){
-			
-			let temp = 'aight' + [i];
-			let idNumber = idArray[i];
-			let divSelect = t2[i];
-
-			t1[i].addEventListener('click', function(){
-				
-				console.log("yes");
-
-				$.ajax({
-				    url: ["/tasks/" + idNumber],
-				    type: 'DELETE',
-				    	success: function(result) {
-				        	console.log("did it " + idNumber);
-				    	}
-				});
-
-				divSelect.style.display = 'none';
-
-			});
-		}
-
-	});
-
-
-</script>
