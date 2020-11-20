@@ -37,7 +37,7 @@ $(function() {
             checkedStatus +
             '><label>' +
              task.title +
-             '</label><button class="taskbutton">DELETE</button></div></li>';
+             //'</label><button class="taskbutton">DELETE</button></div></li>';
 
             idArray.push(task.id);
             var t1 = document.getElementsByClassName("taskbutton");
